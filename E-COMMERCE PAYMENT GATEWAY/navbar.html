@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+       
+        body >img{
+            width: 100%;
+        }
+        #container{
+            background-color: #202a3d;
+            margin: auto;
+            width: 95%;
+            /* border: 1px solid red; */
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #container > div{
+            padding: 1%;
+            display: flex;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            height: 20px;
+            width: auto;
+            justify-content: space-between;
+        }
+        #container > div:last-child{
+            width: 35%;
+        }
+        #container > div > div{
+            color: white;
+            font-size: small;
+            /* border: 1px solid green; */
+            height: auto;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+
+        <div>
+            <div>
+                Rebook
+            </div>
+        </div>
+        <div>
+            <div><a id="menspage" href="menspage.html">Men's</a></div>
+            <div><a id="womenspage" href="womensPage.html">Women's</a></div>
+            <div><a id="cartpage" href="cart.html">Cart</a></div>
+            <div><a id="loginpage" href="loginPage.html">Log-in</a></div>
+            <div><a id="signupPage" href="signUpPage.html">Sign-Up</a></div>
+        </div>
+    </div>
+  
+</body>
+</html>
+
+<script>
+            
+    let array=[];
+    function openMenspage(){
+
+        //event.preventDefault();
+
+        let res = JSON.parse.getItem("condition");
+        if(res == true){
+            window.location.href="menspage.html";
+            console.log("yes");
+        }else{
+            window.location.href="signUpPage.html";
+            alert("Please Sign-Up");
+            console.log("No");
+        }
+    }
+   
+</script>

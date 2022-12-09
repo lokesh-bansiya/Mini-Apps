@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Products</title>
+    <style>
+        #container{
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            /* border: 1px solid red; */
+            width: 15%;
+            padding: 1% 3% 3% 3%;
+            margin: auto;
+            margin-top: 5%;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            margin-top: 1%;
+            padding: 1%;
+            border: 1.5px solid black;
+            border-radius: 5px;
+        }
+        input:hover{
+            border: 1.5px solid blue;
+        }
+        h3{
+            margin-bottom: 1%;
+            padding-bottom: 0%;
+        }
+
+        #btn{
+            margin: 8% auto auto auto;
+            background-color: rgb(101, 51, 2);
+            border: 2px solid black;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #btn:hover{
+            background-color: rgb(244, 143, 93);
+            border: 2px solid rgb(16, 3, 201);
+        }
+
+        /* home page */
+
+        #box>#box1 {
+            background-color: #427596;
+            margin: auto;
+            width: 95%;
+            /* border: 1px solid red; */
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #box1>div {
+            padding: 1%;
+            display: flex;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            height: 20px;
+            width: auto;
+            justify-content: space-between;
+        }
+
+        #box>#box1>div:last-child {
+            width: 35%;
+        }
+
+        #box>#box1>div>div {
+            color: white;
+            font-size: small;
+            /* border: 1px solid green; */
+            height: auto;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="box1">
+            <div>
+                <div>
+                    Rebook
+                </div>
+            </div>
+            <div>
+
+                <div><a id="menspage" href="menspage.html">Men's</a></div>
+                <div><a id="womenspage" href="womensPage.html">Women's</a></div>
+                <div><a id="cartpage" href="cart.html">Cart</a></div>
+                <div><a id="loginpage" href="loginPage.html">Log-in</a></div>
+                <div><a id="signupPage" href="signUpPage.html">Sign-Up</a></div>
+                <!-- <div id="buy"><a href="buy.html">Buy</a></div> -->
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="container">
+
+            <form id="buyItem">
+                <h3>Name:-</h3>
+                <input id="name" type="text" placeholder="Enter your name">
+                <h3>Card No.:-</h3>
+                <input id="cardNumber" type="number" placeholder="Enter your card-number">
+                <h3>CVV:-</h3>
+                <input id="cvv" type="number" placeholder="Enter your CVV">
+                <h3>Expiry Date:-</h3>
+                <input id="date" type="text" placeholder="Month/Year">
+                <input id="submit" type="submit" name="submit" value="Payment">
+            </form>
+    </div>
+   
+</body>
+</html>
+
+<script>
+
+    let info1=localStorage.getItem("info1");
+    document.getElementById("loginpage").innerText="";
+    document.getElementById("signupPage").innerText="";
+
+    document.getElementById("loginpage").innerText=info1;
+    document.getElementById("signupPage").innerText=href="Loged-In";
+
+
+
+    document.querySelector("form").addEventListener("submit", buyItem);
+    let buyArr = [];
+    
+    function buyItem(){
+
+        event.preventDefault();
+
+        let buyItemObj={
+            name: document.getElementById("name").value,
+            cardNum: document.getElementById("cardNumber").value,
+            cvv: document.getElementById("cvv").value,
+            date: document.getElementById("date").value
+        };
+
+        if(buyItemObj.cardNum == 1234567890123456 && buyItemObj.cvv == 123 && buyItemObj.date == "07/2022"){
+            buyArr.push(buyItem);
+            
+            console.log(buyArr);
+            window.location.href="otp.html";
+        }else{
+            alert("Wrong Inputs!")
+        }
+        
+    }
+</script>

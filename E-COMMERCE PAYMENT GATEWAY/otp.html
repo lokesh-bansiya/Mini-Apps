@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <style>
+        #container {
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            display: flex;
+            width: 30%;
+            margin: auto;
+            margin-top: 10%;
+        }
+        form{
+            /* border: 1px solid red; */
+            font-size: 30px;
+            width: 100%;
+            margin: 3% 3% 3% 15%;
+        }
+        input{
+            margin-bottom: 3%;
+            padding: 1% 2% 1% 1%;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <form>
+            <input id="num" type="number" placeholder="Enter your OTP">
+            <input type="submit" name="submit" id="submit" value="Submit OTP">
+        </form>
+    </div>
+
+</body>
+
+</html>
+<script>
+    
+
+
+    alert("One time OTP:- 1234");
+
+    document.querySelector("form").addEventListener("submit", otpFunction);
+    let otpArr=[];
+
+    function otpFunction(){
+        event.preventDefault();
+
+        let otpObj={
+            otp: document.getElementById("num").value
+        }
+
+        if(otpObj.otp == 1234){
+            otpArr.push(otpObj);
+            console.log(otpArr);
+            alert("Payment Successful");
+            window.location.href="navbar.html"
+        }else{
+            alert("wrong OTP");
+        }
+        
+    }
+
+</script>

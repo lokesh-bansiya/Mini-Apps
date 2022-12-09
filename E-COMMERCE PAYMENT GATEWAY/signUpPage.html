@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <style>
+        #container{
+            align-items: center;
+            /* border: 1px solid red; */
+            margin: auto;
+            margin-bottom: 5%;
+            border-radius: 5px;
+            display: flex;
+            width: 30%;
+            height: auto;
+            flex-direction: column;
+        }
+        #container > div{
+            width: 30%;
+            height: fit-content;
+            padding: 0%;
+            margin: 0%;
+        }
+        #container > div:last-child{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            border-radius: 10px;
+            width: 100%;
+            text-align: center;
+            /* border: 1px solid red ; */
+            height: fit-content;
+            padding: 5% 5% 5% 5%;
+            margin: 0%;
+        }
+        form{
+            padding: 3% 0.5% 2% 0.5%;
+            border-radius: 5px;
+            /* border: 1px solid black; */
+           display: flex;
+           flex-direction: column;
+        }
+       
+        input{
+            padding: 2.5% 20% 2.5% 2%;
+            margin: 1% 1% 3% 1%;
+            border-radius: 5px;
+            border: 1px solid rgb(162, 161, 161);
+        }
+        input:hover{
+            border: 2px solid black;
+            padding: 2.2% 18% 2.2% 1.8%;
+        }
+        #submit{
+            padding: auto;
+            padding-left: 20%;
+            margin: auto;
+            background-color: rgb(196, 194, 194);
+            border: 1px solid green;
+            border-radius: 10px;
+            width: 90%;
+            margin: auto;
+        }
+
+        #submit:hover{
+            padding: 2.5% 20% 2.5% 2%;
+            padding-left: 20%;
+            margin: auto;
+            background-color: rgb(233, 122, 122);
+            border: 1.1px solid green;
+            border-radius: 8px;
+            width: 90%;
+            margin: auto;
+            
+        }
+
+        h2{
+            margin: 5% auto 1% 1%;
+        }
+        div > img{
+            width: 100%;
+            padding: 0%;
+            margin: 20% auto 20% auto;
+        }
+        form > div >h5 {
+            border: 1px solid red;
+            margin: 3% 5% 5% 5%;
+            text-align: justify;
+            margin: 4% auto 2% auto;
+        }
+        form > div >span{
+            margin: 5% auto 5% auto;
+        }
+        h1{
+            width: fit-content;
+            margin: auto;
+            padding: 1%;
+            font-size: 130%;
+            /* border: 1px solid green; */
+        }
+        #container > div > p{
+            margin: 0%;
+            padding: 0%;
+            font-size: large;
+        }
+
+
+/* home page */
+
+        #box > #box1{
+            background-color: #202a3d;
+            margin: auto;
+            width: 95%;
+            /* border: 1px solid red; */
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #box1 > div{
+            padding: 1%;
+            display: flex;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            height: 20px;
+            width: auto;
+            justify-content: space-between;
+        }
+        #box > #box1 > div:last-child{
+            width: 35%;
+        }
+        #box > #box1 > div > div{
+            color: white;
+            font-size: small;
+            /* border: 1px solid green; */
+            height: auto;
+        }
+         a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        h5 > a{
+            color: rgb(171, 8, 51);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1">
+            <div>
+                <div>
+                    Rebook
+                </div>
+            </div>
+            <div>
+
+                <div><a id="menspage" href="menspage.html">Men's</a></div>
+                <div><a id="womenspage" href="womensPage.html">Women's</a></div>
+                <div><a id="cartpage" href="cart.html">Cart</a></div>
+                <div><a id="loginpage" href="loginPage.html">Log-in</a></div>
+                <div><a id="signupPage" href="signUpPage.html">Sign-Up</a></div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div>
+            <img src="data:image/png;base64,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" alt="">
+        </div>
+        <div>
+            <p>Sign Up</p>
+            <form>
+                <h2>Full name</h2>
+                <input id="name" type="text" placeholder="Enter your full name">
+                <h2>Email</h2>
+                <input id="email" type="email" placeholder="Enter mail">
+                <h2>Password</h2>
+                <input id="password" type="password" placeholder="Enter password">
+                <span>
+                    <h5> By signing up, I accept the <a href="#">Terms of Services</a> and acknowledge the <a href="#">Privacy Policy</a></h5>
+                </span>
+                <!-- <h1>SIGN UP</h1> -->
+                <input id="submit" name="submit" type="submit" value="SIGN UP">   
+                <h5>Already have an account? <a href="loginPage.html">Sign In</a></h5>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    
+    document.querySelector("form").addEventListener("submit",signUp);
+    let signUpArr=[];
+   
+    console.log(signUpArr);
+
+    function signUp(){
+        event.preventDefault();
+        
+        let signUpObj = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+        };
+
+        if(signUpObj.name=="" || signUpObj.email=="" || signUpObj.password=="")
+        {
+            alert("wrong credentials");
+            document.getElementById("email").value="";
+            document.getElementById("password").value="";
+        }
+        
+        else
+        {
+            signUpArr.push(signUpObj);
+
+            localStorage.setItem("condition", true);
+            localStorage.setItem("personEmail",signUpObj.email);
+            localStorage.setItem("personPassword",JSON.stringify(signUpObj.password));
+            let namee = document.getElementById("name").value;
+            alert("Successfully Sign Up");
+            window.location.href="loginPage.html";
+            localStorage.setItem("info1",namee);            
+            //console.log(signUpArr.length)
+        }
+    }
+    
+</script>
