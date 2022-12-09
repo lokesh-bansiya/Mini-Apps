@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Calculator</title>
+    <style>
+        h1{
+            color: teal;
+            text-align: center;
+            font-size: 60px;
+        }
+
+        #container{
+             /* border: 1px solid black; */
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            margin: 50px auto auto auto;
+            padding: 40px 40px;
+            width: 30%;
+            border-radius: 5px;
+            height: auto;
+        }
+
+        #display{
+            /* border: 1px solid red; */
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+            padding: 5%;
+            height: 40px;
+            width: 90%;
+            margin: 40px auto 10px auto;
+            border-radius: 10px;
+        }
+        
+        #keyboard{
+            /* border: 1px solid green; */
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 80px);
+            gap: 10px;
+        }
+
+        #keyboard>div{
+            /* border: 1px solid blue; */
+            font-size: 26px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        #keyboard>div:hover{
+            cursor: pointer;
+        }
+
+        #red{
+            background-color: red;
+            color: white;
+        }
+
+        .black{
+            background-color: black;
+            color: white;
+        }
+
+        #display{
+            font-size: 31px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow:scroll;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="container">
+        <div id="display"></div>
+        <div id="keyboard">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div class="black">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div class="black">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div class="black">x</div>
+            <div id="red">C</div>
+            <div>0</div>
+            <div class="black">=</div>
+            <div class="black">/</div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let keys = document.querySelectorAll("#keyboard > div")
+
+    for(let i=0; i<keys.length; i++){
+        keys[i].addEventListener("click",myCalculator)
+    }
+
+    let bag="";
+    function myCalculator(){
+    let targetNumber = event.target.innerText;
+
+    if(targetNumber == "C"){     //clear display
+        document.querySelector("#display").innerText="";
+        bag="";
+    }
+
+    else if(targetNumber == "="){     //do mathematical-operation
+
+        if(bag==""){
+            document.querySelector("#display").innerText="";
+        }else{
+            let res = eval(bag);
+            //console.log(res);
+            document.querySelector("#display").innerText = res;
+        }
+    }
+
+    else{     //clear display
+        bag = bag + targetNumber;
+        document.querySelector("#display").innerText = bag;
+    }
+    }
+</script>
