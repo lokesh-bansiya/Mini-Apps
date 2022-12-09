@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic-Table</title>
+    <style>
+        #maincontainer{
+            margin: auto auto auto auto;
+            /* border: 1px solid blueviolet; */
+            /* width: 95%; */
+            width: 70%;
+            height: auto;
+        }
+        .outerbox{
+            /* border: 1px solid black; */
+            display: flex;
+            width: 90%;
+            height: auto;
+            margin: auto;
+        }
+
+        .innerbox{
+            /* border: 1px solid rgb(201, 20, 20); */
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+
+        #lowerbox{
+            width: 60%;
+            height: auto;
+            margin: 5% auto 5% auto;
+        }
+
+        .outerbox2{
+            display: flex;
+            width: 90%;
+            height: auto;
+            margin: auto;
+        }
+        #lowerbox > div:hover,
+        .outerbox > div:hover{
+            cursor: pointer;
+        }
+
+        .innerbox_purple{
+            background-color: purple;
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_blue{
+            background-color: rgb(47, 112, 233);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+
+        .innerbox_grey{
+            background-color: rgb(89, 87, 86);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_orange{
+            background-color: rgb(218, 124, 42);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_red{
+            background-color: rgb(187, 22, 22);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_green{
+            background-color: rgb(105, 159, 76);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_yellow{
+            background-color: rgb(234, 231, 35);
+            color: rgb(8, 0, 0);
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_darkorange{
+            background-color: rgb(160, 60, 7);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_darkgreen{
+            background-color: rgb(39, 88, 12);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+        }
+        .innerbox_light1{
+            background-color: rgb(11, 46, 70);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .innerbox_light2{
+            background-color: rgb(17, 172, 177);
+            color: white;
+            border: 1px solid rgb(9, 1, 1);
+            border-radius: 10%;
+            text-align: center;
+            margin: 1% 2.5px 1% 2.5px;
+            width: 4%;
+            padding: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        #big{
+            display: block;
+            border: 2.5px solid black;
+            height: auto;
+            width: 10%;
+            text-align: center;
+            border-radius: 10%;
+            margin: 1px 1px 1px 1px;
+        }
+        #h5{
+            text-align: right;
+            margin-top: 0%;
+        }
+        #p{
+            text-align: left;
+            margin: auto;
+            padding: auto;
+        }
+        #h2{
+            font-size: 25px;
+        }
+        h1{
+            margin: auto;
+            text-align: center;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="outerbox">
+       
+    <div id="maincontainer">
+
+       <h1>The Periodic Tables of Elements</h1>
+    
+        <div class="outerbox">
+            <div class="innerbox_red">H</div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox_yellow">He</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">Li</div>
+            <div class="innerbox_orange">Be</div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox_purple">B</div>
+            <div class="innerbox_green">C</div>
+            <div class="innerbox_green">N</div>
+            <div class="innerbox_green">O</div>
+            <div class="innerbox_darkorange">F</div>
+            <div class="innerbox_yellow">Ne</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">Na</div>
+            <div class="innerbox_orange">Mg</div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox_orange">Al</div>
+            <div class="innerbox_purple">Si</div>
+            <div class="innerbox_green">P</div>
+            <div class="innerbox_green">S</div>
+            <div class="innerbox_darkorange">Cl</div>
+            <div class="innerbox_yellow">Ar</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">K</div>
+            <div class="innerbox_orange">Ca</div>
+            <div class="innerbox_light1">Sc</div>
+            <div class="innerbox_blue">Ti</div>
+            <div class="innerbox_blue">V</div>
+            <div class="innerbox_blue">Cr</div>
+            <div class="innerbox_blue">Mn</div>
+            <div class="innerbox_blue">Fe</div>
+            <div class="innerbox_blue">Co</div>
+            <div class="innerbox_blue">Ni</div>
+            <div class="innerbox_blue">Cu</div>
+            <div class="innerbox_blue">Zn</div>
+            <div class="innerbox_orange">Ga</div>
+            <div class="innerbox_purple">Ge</div>
+            <div class="innerbox_purple">As</div>
+            <div class="innerbox_green">Se</div>
+            <div class="innerbox_darkorange">Br</div>
+            <div class="innerbox_yellow">Kr</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">Rb</div>
+            <div class="innerbox_orange">Sr</div>
+            <div class="innerbox_light1">Y</div>
+            <div class="innerbox_blue">Zr</div>
+            <div class="innerbox_blue">Nb</div>
+            <div class="innerbox_blue">Mo</div>
+            <div class="innerbox_blue">Tc</div>
+            <div class="innerbox_blue">Ru</div>
+            <div class="innerbox_blue">Rh</div>
+            <div class="innerbox_blue">Pd</div>
+            <div class="innerbox_blue">Ag</div>
+            <div class="innerbox_blue">Cd</div>
+            <div class="innerbox_orange">In</div>
+            <div class="innerbox_orange">Sn</div>
+            <div class="innerbox_purple">Sb</div>
+            <div class="innerbox_purple">Te</div>
+            <div class="innerbox_darkorange">I</div>
+            <div class="innerbox_yellow">Xe</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">Cs</div>
+            <div class="innerbox_orange">Ba</div>
+            <div class="innerbox_light1">La</div>
+            <div class="innerbox_blue">Hf</div>
+            <div class="innerbox_blue">Ta</div>
+            <div class="innerbox_blue">W</div>
+            <div class="innerbox_blue">Re</div>
+            <div class="innerbox_blue">Os</div>
+            <div class="innerbox_blue">Ir</div>
+            <div class="innerbox_blue">Pt</div>
+            <div class="innerbox_blue">Au</div>
+            <div class="innerbox_blue">Hg</div>
+            <div class="innerbox_orange">Ti</div>
+            <div class="innerbox_orange">Pb</div>
+            <div class="innerbox_orange">Bi</div>
+            <div class="innerbox_purple">Po</div>
+            <div class="innerbox_darkorange">At</div>
+            <div class="innerbox_yellow">Rn</div>
+                
+        </div>
+    
+        <div class="outerbox">
+            <div class="innerbox_darkgreen">Fr</div>
+            <div class="innerbox_orange">Ra</div>
+            <div class="innerbox_light2">Lr</div>
+            <div class="innerbox_blue">Rf</div>
+            <div class="innerbox_blue">Db</div>
+            <div class="innerbox_blue">Sg</div>
+            <div class="innerbox_blue">Bh</div>
+            <div class="innerbox_blue">Hs</div>
+            <div class="innerbox_blue">Mt</div>
+            <div class="innerbox_blue">Ds</div>
+            <div class="innerbox_blue">Rg</div>
+            <div class="innerbox_blue">Cn</div>
+            <div class="innerbox_grey">Nh</div>
+            <div class="innerbox_grey">Fi</div>
+            <div class="innerbox_grey">Mc</div>
+            <div class="innerbox_grey">Lv</div>
+            <div class="innerbox_grey">Ts</div>
+            <div class="innerbox_grey">Og</div>
+                
+        </div>
+
+
+
+        <div id="lowerbox">
+            <div class="outerbox2">
+                <div class="innerbox_light1">Ce</div>
+                <div class="innerbox_light1">Pr</div>
+                <div class="innerbox_light1">Nd</div>
+                <div class="innerbox_light1">Pm</div>
+                <div class="innerbox_light1">Sm</div>
+                <div class="innerbox_light1">Eu</div>
+                <div class="innerbox_light1">Gd</div>
+                <div class="innerbox_light1">Tb</div>
+                <div class="innerbox_light1">Dy</div>
+                <div class="innerbox_light1">Ho</div>
+                <div class="innerbox_light1">Er</div>
+                <div class="innerbox_light1">Tm</div>
+                <div class="innerbox_light1">Yb</div>
+                <div class="innerbox_light1">Lu</div>
+            </div>
+            <div class="outerbox2">
+                <div class="innerbox_light2">Th</div>
+                <div class="innerbox_light2">Pa</div>
+                <div class="innerbox_light2">U</div>
+                <div class="innerbox_light2">Np</div>
+                <div class="innerbox_light2">Pu</div>
+                <div class="innerbox_light2">Am</div>
+                <div class="innerbox_light2">Cm</div>
+                <div class="innerbox_light2">Bk</div>
+                <div class="innerbox_light2">Cf</div>
+                <div class="innerbox_light2">Es</div>
+                <div class="innerbox_light2">Fm</div>
+                <div class="innerbox_light2">Md</div>
+                <div class="innerbox_light2">No</div>
+                <div class="innerbox_light2">Lr</div>
+            </div>
+        </div>
+    </div>
+
+   
+    
+</body>
+</html>
