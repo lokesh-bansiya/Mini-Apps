@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <style>
+        #container {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(9, auto);
+            gap: 2% 2%;
+        }
+
+        body{
+            text-align: center;
+        }
+
+        #sortName{
+            margin-top: 0%;
+            padding: 0.3% 1% 0.3% 1%;
+            border: 2px solid rgb(254, 130, 5);
+            border-radius: 5px;
+            background-color: rgb(145, 248, 248);
+        }
+        #filterCategory{
+            margin-top: 0%;
+            padding: 0.3% 1% 0.3% 1%;
+            border: 2px solid rgb(254, 130, 5);
+            border-radius: 5px;
+            background-color: rgb(145, 248, 248);
+        }
+        #sortPrice{
+            margin-top: 0%;
+            padding: 0.3% 1% 0.3% 1%;
+            border: 2px solid rgb(254, 130, 5);
+            border-radius: 5px;
+            background-color: rgb(145, 248, 248);
+        }
+
+        body > h1{
+            width: 20%;
+            /* background-color: rgb(254, 143, 74); */
+            margin: 1% auto 5% auto;
+            border: 1px solid blueviolet;
+            border-radius: 5px;
+        }
+        #item{
+            width: 80%;
+            margin: auto ;
+            display: flex;
+        }
+        #item > div {
+            margin: 1% 1% 1% 1%;
+        }
+
+        p {
+            font-size: 80%;
+        }
+
+        @media all and (min-width: 481px) and (max-width: 768px) {
+            #container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(12, auto);
+            }
+        }
+
+        @media all and (min-width: 320px) and (max-width: 480px) {
+            #container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(18, auto);
+            }
+        }
+
+         /* home page */
+
+         #box > #box1{
+            background-color: #427596;
+            margin: auto;
+            width: 95%;
+            /* border: 1px solid red; */
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #box1 > div{
+            padding: 1%;
+            display: flex;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            height: 20px;
+            width: auto;
+            justify-content: space-between;
+        }
+        #box > #box1 > div:last-child{
+            width: 35%;
+        }
+        #box > #box1 > div > div{
+            color: white;
+            font-size: small;
+            /* border: 1px solid green; */
+            height: auto;
+        }
+         a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <div id="box1">
+            <div>
+                <div>
+                    Rebook
+                </div>
+            </div>
+            <div>
+                <div><a href="mensPage.html">Men</a></div>
+                <div><a href="womensPage.html">Women</a></div>
+                <div><a href="cart.html">Cart</a></div>
+                <!-- <div><a href="signUpPage.html">Sign Up</a></div> -->
+            </div>
+        </div>
+    </div>
+
+    <h1>Cart Page</h1>
+
+        <select id="sortName">
+            <option value="">Sort By Names</option>
+            <option value="Ascending">Ascending</option>
+            <option value="Descending">Descending</option>
+          </select>
+        
+          <select id="filterCategory">
+
+                    <option value="">Filter By Category</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Pants">Pants</option>
+                    <option value="Tee">Tee</option>
+                    <option value="Tracksuit">Tracksuit</option>
+                    <option value="Slippers">Slippers</option>
+                    <option value="Shorts">Shorts</option>
+                    <option value="sandale">sandale</option>
+                    <option value="Sweatshirts">Sweatshirts</option>
+                    <option value="Bag">Bag</option>
+
+                    <option value="Polytights">Polytights</option>
+                    <option value="Shortsleeve">Shortsleeve</option>
+                    <option value="Bra">Bra</option>
+                    <option value="Backpack-medium">Backpack-medium</option>
+                    <option value="Leggings">Leggings</option>
+
+          </select>
+        
+          <select id="sortPrice">
+            <option value="">Sort By Price</option>
+            <option value="true">Low to High</option>
+            <option value="false">High to Low</option>
+          </select>
+
+    <div id="item">
+            <div>
+                <h3>Total Item:- <span id="totalItem"></span></h3>
+            </div>
+            <div><h3>Total Price:- <span id="totalprice"></span></h3></div>
+            <div>
+                <h3><button>Discount</button> <input id="discount" type="text" value=""><span id="discounts"></span></h3>
+            </div>
+    </div>
+    <div id="container"></div>
+</body>
+
+</html>
+
+<script>
+
+    let addtoCartData = JSON.parse(localStorage.getItem("addToCart")) || [];
+    var sum=0;
+    console.log(addtoCartData.length);
+
+    let total_item = addtoCartData.length;
+    document.getElementById("totalItem").innerText=total_item;
+    
+
+
+document.querySelector("#sortName").addEventListener("change", handleNameSort)
+document.querySelector("#filterCategory").addEventListener("change", handleFilter);
+document.querySelector("#sortPrice").addEventListener("change", handlePrice);
+
+  function handleNameSort() {
+  let selected = document.querySelector("#sortName").value;
+
+    //console.log(selected);
+
+    if (selected == "Ascending") {
+      addtoCartData.sort(function (a, b) {
+        console.log("ascending");
+        let x = a.name.toUpperCase();
+        let y = b.name.toUpperCase();
+        if (x > y) return 1;
+        if (x < y) return -1;
+        return 0;
+      });
+
+      displayContainer(addtoCartData);
+      console.log(addtoCartData);
+    }
+
+    if (selected == "Descending") {
+      addtoCartData.sort(function (a, b) {
+        let x = a.name.toUpperCase();
+        let y = b.name.toUpperCase();
+        if (x > y) return -1;
+        if (x < y) return 1;
+        return 0;
+      });
+
+      displayContainer(addtoCartData);
+      console.log(addtoCartData);
+    }
+  }
+
+
+  function handleFilter() {
+    let selected = document.querySelector("#filterCategory").value;
+    console.log(selected);
+
+    let filterList = addtoCartData.filter(function (elem) {
+      return elem.brand == selected;
+    });
+    displayContainer(filterList);
+    console.log(filterList);
+  }
+
+  function handlePrice() {
+    let price = document.querySelector("#sortPrice").value;
+
+    if (price == "true") {
+
+      addtoCartData.sort(function (a, b) {
+        console.log(price);
+
+        let x = a.price;
+        let y = b.price;
+        if (x > y) return 1;
+        if (x < y) return -1;
+        return 0;
+      });
+
+      displayContainer(addtoCartData);
+      console.log(addtoCartData);
+    }
+
+    if (price == "false") {
+
+      addtoCartData.sort(function (a, b) {
+        console.log(price);
+
+        let x = a.price;
+        let y = b.price;
+        if (x > y) return -1;
+        if (x < y) return 1;
+        return 0;
+      });
+
+      displayContainer(addtoCartData);
+      console.log(addtoCartData);
+    }
+   }
+
+
+    displayContainer(addtoCartData);
+
+    function displayContainer(addtoCartData){
+        
+        document.querySelector("#container").innerHTML="";
+
+
+        addtoCartData.forEach(function (elem, index) {
+            let div = document.createElement("div");
+
+            let img = document.createElement("img");
+            img.setAttribute("src", elem.image_url);
+
+            let name = document.createElement("p");
+            name.innerText = elem.name;
+
+            let price = document.createElement("h5");
+            price.innerText = elem.price;
+            sum=sum+Number(elem.price);
+
+            let brand = document.createElement("h3");
+            brand.innerText = elem.brand;
+
+            let strikedoffprice = document.createElement("h5");
+            strikedoffprice.innerText = elem.strikedoffprice;
+
+            let removetoCart = document.createElement("button");
+            removetoCart.innerText = "Remove";
+
+            removetoCart.addEventListener("click", function () {
+                removetoCartFunc(index);
+            })
+
+            div.append(img, name, price, strikedoffprice, removetoCart);
+            document.querySelector("#container").append(div);
+        });
+
+        function removetoCartFunc(index)
+        {
+            addtoCartData.splice(index, 1);
+            localStorage.setItem("addToCart", JSON.stringify(addtoCartData));
+        }
+    }
+
+    document.getElementById("totalprice").innerText=sum;
+    //console.log(sum);
+
+    document.querySelector("button").addEventListener("click",checkDiscount);
+
+    function checkDiscount()
+    {
+        let sum2=sum*0.3;
+
+        if(document.getElementById("discount").value === "masai30")
+        {
+            document.getElementById("discounts").innerText="Your final amount will be:-" + (sum-sum2);
+            console.log(sum2);
+        }
+        else
+        {
+            alert("wrong fill-up");
+        }
+    }
+       
+        
+</script>
