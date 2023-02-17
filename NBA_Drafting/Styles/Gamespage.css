@@ -1,0 +1,89 @@
+#games_container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: auto;
+    width: 90%;
+}
+
+#games_container > div{
+    padding: 5%;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    border-radius: 10px;
+    margin: 2%;
+    display: flex;
+    background-color: rgb(249, 244, 236);
+    flex-direction: column;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    justify-content: center;
+}
+
+#games_container > div > img{
+    width: 70%;
+    border-radius: 50%;
+   margin: auto;
+}
+
+#games_container > div > p{
+    width: 100%;
+    font-size: 150%;
+    color: rgb(59, 1, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 2%;
+    display: flex;
+}
+#paginationGames{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+}
+
+#paginationGames > button{
+    padding: 1%;
+    margin: 0.5%;
+    color: rgb(250, 245, 245);
+    background-color: rgb(2, 43, 29);
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+#paginationGames > button:nth-child(2){
+    font-size: 150%;
+}
+
+#paginationGames > button:first-child,
+#paginationGames > button:last-child{
+    background-color: blue;
+    color: white;
+}
+
+@media all and (min-width: 701px) and (max-width: 1000px){
+    #games_container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: auto;
+        width: 90%;
+    }
+}
+
+
+@media all and (min-width: 401px) and (max-width: 700px){
+    #games_container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: auto;
+        width: 90%;
+    }
+}
+
+
+@media all and (min-width: 280px) and (max-width: 400px){
+    #games_container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin: auto;
+        width: 90%;
+    }
+}

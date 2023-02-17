@@ -1,0 +1,51 @@
+.NavbarContainer{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    background-color: rgb(243, 194, 194);
+    box-shadow: #091e4240 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    margin-bottom: 2%;
+}
+
+.NavbarContainer > a{
+    padding: 1%;
+    margin: 1%;
+    text-decoration: none;
+    font-size: 150%;
+    font-weight: bold;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: teal;
+}
+
+
+@media all and (min-width: 701px) and (max-width: 1000px){
+    
+.NavbarContainer > a{
+    font-size: 100%;
+    border-radius: 6px;
+    padding: 2%;
+    margin: 3%;
+}
+}
+
+
+@media all and (min-width: 401px) and (max-width: 700px){
+    .NavbarContainer > a{
+        font-size: 80%;
+        border-radius: 6px;
+        padding: 2%;
+        margin: 3%;
+    }
+}
+
+
+@media all and (min-width: 280px) and (max-width: 400px){
+    .NavbarContainer > a{
+        font-size: 70%;
+        border-radius: 6px;
+        padding: 2%;
+        margin: 3%;
+    }
+}
