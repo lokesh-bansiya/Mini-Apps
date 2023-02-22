@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart JS</title>
+</head>
+
+<body>
+
+    <input type="text" id="month" placeholder="Enter month">
+    <input type="text" id="attendance" placeholder="Enter attendance">
+    <input type="text" id="performance" placeholder="Enter performance">
+    <button id="btn">Add Data</button>
+
+    <br>
+    <br>
+
+    <select name="" id="edit-month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+    <input type="text" id="edit-attendance" placeholder="Enter attendance">
+    <input type="text" id="edit-performance" placeholder="Enter performance">
+    <button id="edit-btn">Edit Data</button>
+
+
+    <canvas id="chart">
+
+    </canvas>
+    <button id="remove">Remove Last</button>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script type="text/javascript">
+    var ctx, chart;
+    window.addEventListener("load", function () {
+        ctx = document.getElementById("chart")
+
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click", function () {
+            let month = document.getElementById("month").value
+            let attendance = document.getElementById("attendance").value
+            let performance = document.getElementById("performance").value
+            let payload = { month, attendance, performance }
+            addData(chart, payload)
+        })
+
+        let edit = document.getElementById("edit-btn")
+        edit.addEventListener("click", function () {
+            let month = document.getElementById("edit-month").value
+            let attendance = document.getElementById("edit-attendance").value
+            let performance = document.getElementById("edit-performance").value
+            let payload = { month, attendance, performance }
+            editData(chart, payload)
+        })
+
+        let delete_btn = document.getElementById("remove")
+        delete_btn.addEventListener("click", function () {
+            removeBtn(chart)
+        })
+
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                datasets: [
+                    {
+                        label: 'attendance',
+                        data: [100, 45, 60, 80, 67, 70],
+                        backgroundColor: "teal"
+                    },
+                    {
+                        label: 'performance',
+                        data: [80, 55, 25, 50, 57, 40],
+                        backgroundColor: "green"
+                    }
+                ],
+                borderWidth: 1
+            },
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }
+                    ]
+                }
+            }
+        })
+    });
+
+    function addData(chart, { month, attendance, performance }) {
+        chart.data.labels.push(month)
+        chart.data.datasets[0].data.push(attendance)
+        chart.data.datasets[1].data.push(performance)
+        chart.update();
+
+    }
+
+    function removeBtn(chart) {
+        chart.data.labels.pop();
+        chart.data.datasets.forEach(datasets => {
+            datasets.data.pop()
+        })
+        chart.update();
+    }
+
+    function editData(chart, { month, attendance, performance }) {
+        let mnth = chart.data.labels.indexOf(month)
+        chart.data.datasets[0].data[mnth] = attendance
+        chart.data.datasets[1].data[mnth] = performance
+        chart.update();
+    }
+
+
+    function random(num) {
+        return Math.floor(Math.random() * num)
+    };
+
+    function createColor(num) {
+        return (`rgba(${random(num)},${random(num)},${random(num)},${Math.random(num)})`)
+    }
+</script>
+
+<!-- //canvas support chart and graphs etc bars  -->
